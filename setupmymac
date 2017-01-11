@@ -1,0 +1,86 @@
+#!/bin/bash
+
+#install zsh
+echo 'install oh-my-zhs'
+echo '-----------------'
+rm -rf $HOME/.oh-my-zsh
+curl -L http://install.ohmyz.sh | sh
+
+echo 'create Code Dir'
+mkdir $HOME/Code
+
+#global gitigore
+ln -s $HOME/Code/setup_my_mac/shell/.global-gitignore $HOME/çç
+git config --global core.excludesfile $HOME/.global-gitignore
+#symlink zsh prefs
+rm $HOME/.zshrc
+ln -s $HOME/Code/setup_my_mac/shell/.zshrc $HOME/.zshrc
+
+
+
+#install homebrew
+echo 'install homebrew'
+  echo '----------------'
+sudo rm -rf /usr/local/Cellar /usr/local/.git && brew cleanup
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# cask
+echo 'install homebrew cask'
+  echo '----------------'
+brew install caskroom/cask/brew-cask
+
+#install phpbrew
+echo 'install php'
+echo '------------'
+brew tap homebrew/dupes
+brew tap homebrew/versions
+brew tap homebrew/homebrew-php
+brew install php71
+brew install php71-xdebug
+sudo brew services start homebrew/php/php71
+brew install homebrew/php/php71-mcrypt
+brew install homebrew/php/php71-imagick
+
+#install composer
+echo 'install composer'
+echo '----------------'
+cd ~/Code/setup_my_mac
+curl -sS https://getcomposer.org/installer | php
+echo 'move composer to /usr/local/bin/composer'
+mv -f composer.phar /usr/local/bin/composer
+
+#install php-cs-fixer
+echo 'install php-cs-fixer'
+echo '--------------------'
+composer global require friendsofphp/php-cs-fixer
+
+
+#install valet
+echo 'install laravel valet'
+echo '---------------------'
+composer global require laravel/valet
+valet install
+
+#install valet
+echo 'install forge connect'
+echo '---------------------'
+composer global require lkdev/forge-connect
+valet install
+
+#install mariadb
+echo 'install mariadb'
+echo '---------------'
+brew install mariadb
+brew services start mariadb
+
+#install yarn
+echo 'install yarn'
+echo '------------'
+brew install yarn
+
+# install gulp
+echo 'install gulp'
+echo '------------'
+npm install -g gulp
+
+echo 'no restart iterm and enjoy the show'
