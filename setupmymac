@@ -52,6 +52,7 @@ cd ~/Code/setup_my_mac
 curl -sS https://getcomposer.org/installer | php
 echo 'move composer to /usr/local/bin/composer'
 mv -f composer.phar /usr/local/bin/composer
+composer global require "hirak/prestissimo:^0.3"
 
 #install php-cs-fixer
 echo 'install php-cs-fixer'
