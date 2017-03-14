@@ -70,7 +70,7 @@ valet install
 echo 'install forge connect'
 echo '---------------------'
 composer global require lkdev/forge-connect
-valet install
+
 
 #install mariadb
 echo 'install mariadb'
