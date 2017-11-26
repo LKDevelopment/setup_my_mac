@@ -73,20 +73,10 @@ composer global require lkdev/forge-connect
 
 
 #install mariadb
-echo 'install mariadb'
+echo 'install mysql'
 echo '---------------'
-brew install mariadb
-brew services start mariadb
-
-#install yarn
-echo 'install yarn'
-echo '------------'
-brew install yarn
-
-# install gulp
-echo 'install gulp'
-echo '------------'
-npm install -g gulp
+brew install mysql
+brew services start mysql
 
 echo 'set Defaults For OSX'
 
