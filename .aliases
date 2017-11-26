@@ -15,17 +15,14 @@ alias cr="composer require"
 alias ci="composer install"
 alias cda="composer dump-autoload -o"
 alias hostfile="sudo vi /etc/hosts"
-alias li="cp .env.example .env && ci && yarn"
-alias weather='curl -H "Accept-Language: de" -s wttr.in/Bedburg | sed -n "1,7p"'
+alias li="cp .env.example .env && ci && npm install && php artisan key:generate"
+alias weather='curl -H "Accept-Language: de" -s wttr.in/Zenting | sed -n "1,7p"'
 
 # Fast open
 alias o="open ."
 
 # List all files colorized in long format
 alias l="ls -laF"
-
-#phpstorm
-alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
